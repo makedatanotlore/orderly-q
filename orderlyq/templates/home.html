@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Make Application</legend>
+            <div class="form-group">
+                {{ form.name.label(class="form-control-label") }}
+
+                {% if form.name.errors %}
+                    {{ form.name(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.name(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.street.label(class="form-control-label") }}
+                {% if form.street.errors %}
+                    {{ form.street(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.street.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.street(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.city.label(class="form-control-label") }}
+                {% if form.city.errors %}
+                    {{ form.city(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.city.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.city(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.zip_code.label(class="form-control-label") }}
+                {% if form.zip_code.errors %}
+                    {{ form.zip_code(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.zip_code.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.zip_code(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+    </div>
+    {% for block in blocks %}
+        <article class="media content-section wrap_word;">
+
+            <div class="media-body">
+                <div class="article-metadata">
+                    <p class="mr-2">Previous Hash: {{ block.previous_hash }}</p>
+                    <small class="text-muted">{{ block.timestamp }}</small>
+                </div>
+                <a class="article-title" href="#">Hash: {{ block.hash }}</a>
+                {% set json_data = json.loads(block.data) %}
+                {% for application in json_data %}
+                    <div class="content-section">
+                    <a class="article-content" href="{{ url_for('application') }}">Application #: {{ application[0] }}</a>
+                    <p class="article-content">Status: {{ application[6] }} </p>
+                    {% if bcrypt.check_password_hash(application[1], current_user.username) %}
+                        <p class="article-content">Name: {{ application[2] }}</p>
+                        <p class="article-content">Street: {{ application[3] }}</p>
+                        <p class="article-content">City: {{ application[4] }}</p>
+                        <p class="article-content">ZIP: {{ application[5] }}</p>
+                    {% endif %}
+                    </div>
+                {% endfor %}
+
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

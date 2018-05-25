@@ -1,0 +1,152 @@
+header {
+  font-family: 'Montserrat', sans-serif bold;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  background-color: white;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #003471;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #006ce6;
+}
+
+.site-header .navbar-nav .nav-link.active {
+}
+
+.content-section {
+  background: white;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: black;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+
+.character-name {
+  color: black;
+  font-size: 2.5rem;
+}
+
+.character-box {
+  background: white;
+  font-family: 'Mirza', cursive;
+  color: black;
+
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  min-height: 40rem;
+  margin-top: 15px;
+}
+
+.character-detail-header {
+  color: black;
+}
+
+.header-fixed {
+  width: 100%
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+  display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+  content: ' ';
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+.header-fixed > tbody {
+  overflow-y: auto;
+}
+
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+  width: 25%;
+  float: left;
+}
+
+
+.wrap_word {
+  overflow-wrap: break-word;
+}
+
+.logo {
+  background-image: url("images/oq_logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 300px;
+  height: 60px;
+}
+
+.inline-radio ul {list-style:none}
